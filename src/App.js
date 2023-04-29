@@ -1,7 +1,7 @@
 import './App.css';
 import Card1 from './Component/Card/Card1';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from "swiper";
+import { Pagination, FreeMode, Navigation } from "swiper";
 
 
 // Import Swiper styles
@@ -27,17 +27,17 @@ function App() {
             spaceBetween={32}
             slidesPerView={3}
             pagination={pagination}
-            modules={[Pagination]}
+            modules={[Pagination, FreeMode, Navigation]}
             className="mySwiper"
-
-          // pagination={{
-          //   el: ".cardSwiperDots",
-          //   type: 'bullets',
-          //   clickable: true,
-          // }}
-
-
-
+            navigation={{
+              nextEl: '.nextSlide',
+              prevEl: '.prevSlide',
+            }}
+            speed={700}
+            freeMode={{
+              enabled: true,
+              sticky: true
+            }}
           >
 
             {
@@ -57,7 +57,8 @@ function App() {
           <div className='flex justify-center mt-10 gap-x-4 cardSwiperDots p-4 border'>
           </div>
           <div>
-
+            <button className="prevSlide">Prev</button>
+            <button className="nextSlide">Next</button>
           </div>
         </div>
       </div>
